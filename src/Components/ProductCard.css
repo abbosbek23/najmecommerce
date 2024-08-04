@@ -1,0 +1,147 @@
+/* 
+  
+  .product-card {
+    text-align: center;
+    padding: 0px;
+    margin: 10px;
+    
+    border-radius: 10px;
+    width: 200px;
+    box-sizing: border-box;
+  }
+  
+  .product-card img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .product-card .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 10px 0;
+  }
+  
+  .product-card .description {
+    font-size: 1em;
+    margin: 10px 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .product-card .availability {
+    font-size: 0.9em;
+    margin: 10px 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .product-card .availability.in-stock {
+    color: green;
+  }
+  
+  .product-card .availability.out-of-stock {
+    color: red;
+  } */
+
+  .product-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-inline: 100px;
+  }
+  
+  .card-product {
+    box-sizing: border-box;
+    width: 250px;
+    padding: 10px;
+    background: white;
+    border: 1px solid white;
+    box-shadow: 12px 17px 51px rgba(126, 126, 126, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    user-select: none;
+    font-weight: bolder;
+    color: black;
+  }
+  
+  .card-product img {
+    width: 100%;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .card-product .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 10px 0;
+  }
+  
+  .card-product .description {
+    font-size: 16px;
+    margin: 10px 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .card-product .availability {
+    font-size: 0.9em;
+    margin: 10px 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .card-product .availability.in-stock {
+    color: green;
+  }
+  
+  .card-product .availability.out-of-stock {
+    color: red;
+  }
+  
+  .card-product:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+  }
+  
+  .card-product:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+  }
+  
+  /* Desktop */
+  @media (min-width: 1200px) {
+    .card-product {
+      width: calc(25% - 40px);
+      margin: 20px;
+    }
+  }
+  
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .card-product {
+      width: calc(50% - 40px);
+      margin: 20px;
+    }
+    .product-list {
+      padding-inline: 30px !important;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 767px) {
+    .product-list{
+      padding-inline: 30px !important;
+    }
+    .card-product {
+      width: calc(100% - 40px);
+      margin: 20px;
+    }
+  }
