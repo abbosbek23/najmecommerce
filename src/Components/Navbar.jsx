@@ -6,7 +6,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import logo from '../assets/Логотип_PNG-04.png';
-import cartvideo from "../assets/cartvideo.mp4"
+import cartvideo from "../assets/cartvideo.mp4";
 import { useNavigate } from 'react-router-dom';
 import './navbar.css';
 
@@ -14,12 +14,10 @@ function Navbar() {
   const [categories, setCategories] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
   const [isRegisterModalVisible, setIsRegisterModalVisible] = useState(false);
   const [isPasswordRecoveryModalVisible, setIsPasswordRecoveryModalVisible] = useState(false);
   const [isCartDrawerVisible, setIsCartDrawerVisible] = useState(false);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -77,7 +75,9 @@ function Navbar() {
     <div className="navbar">
       <div className="top-bar">
         <div className="logo">
-          <img src={logo} alt="femi Cosmetics" />
+          <a href="/">
+            <img src={logo} alt="femi Cosmetics" />
+          </a>
         </div>
         <div className="search">
           <input type="text" placeholder="Поиск" />
@@ -111,20 +111,20 @@ function Navbar() {
         footer={null}
       >
         <div style={{ textAlign: 'center' }}>
-          <Input 
-            placeholder="Номер телефона" 
-            style={{ marginBottom: '10px', padding: '10px' }} 
+          <Input
+            placeholder="Номер телефона"
+            style={{ marginBottom: '10px', padding: '10px' }}
           />
-          <Input.Password 
-            placeholder="Пароль" 
-            style={{ marginBottom: '10px', padding: '10px' }} 
+          <Input.Password
+            placeholder="Пароль"
+            style={{ marginBottom: '10px', padding: '10px' }}
           />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
             <Checkbox>Запомнить меня</Checkbox>
             <a href="#" onClick={showPasswordRecoveryModal}>Забыли пароль?</a>
           </div>
-          <Button 
-            type="primary" 
+          <Button
+            type="primary"
             style={{ width: '100%', marginBottom: '10px' }}
           >
             Войти
@@ -134,8 +134,8 @@ function Navbar() {
             <span style={{ padding: '0 10px' }}>ИЛИ</span>
             <div style={{ flex: 1, height: '1px', backgroundColor: '#ddd' }}></div>
           </div>
-          <Button 
-            type="default" 
+          <Button
+            type="default"
             style={{ width: '100%', border: '1px solid #000' }}
             onClick={showRegisterModal}
           >
@@ -152,12 +152,12 @@ function Navbar() {
       >
         <div style={{ textAlign: 'center' }}>
           <p>Уже есть аккаунт? <a href="#" onClick={showLoginModal}>Войдите в свой аккаунт</a></p>
-          <Input 
-            placeholder="Номер телефона" 
-            style={{ marginBottom: '10px', padding: '10px' }} 
+          <Input
+            placeholder="Номер телефона"
+            style={{ marginBottom: '10px', padding: '10px' }}
           />
-          <Button 
-            type="primary" 
+          <Button
+            type="primary"
             style={{ width: '100%', marginBottom: '10px' }}
           >
             Далее
@@ -173,19 +173,19 @@ function Navbar() {
       >
         <div style={{ textAlign: 'center' }}>
           <p>Вспомнили пароль? <a href="#" onClick={showLoginModal}>Войдите в свой аккаунт</a></p>
-          <Input 
-            placeholder="Номер телефона" 
-            style={{ marginBottom: '10px', padding: '10px' }} 
+          <Input
+            placeholder="Номер телефона"
+            style={{ marginBottom: '10px', padding: '10px' }}
           />
-          <Button 
-            type="primary" 
+          <Button
+            type="primary"
             style={{ width: '100%', marginBottom: '10px' }}
           >
             Далее
           </Button>
         </div>
       </Modal>
-      <Drawer style={{backgroundColor:"#f5f4f6"}}
+      <Drawer style={{ backgroundColor: "#f5f4f6" }}
         title="Корзина"
         placement="right"
         closable={true}
@@ -193,11 +193,11 @@ function Navbar() {
         open={isCartDrawerVisible}
       >
         <div style={{ textAlign: 'center' }}>
-          <video 
-            src={cartvideo} 
-            loop 
-            autoPlay 
-            muted 
+          <video
+            src={cartvideo}
+            loop
+            autoPlay
+            muted
             style={{ width: '100%', height: 'auto' }}
           ></video>
           <p>Ваша корзина пуста</p>
