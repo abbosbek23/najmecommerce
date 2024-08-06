@@ -84,22 +84,22 @@ function Navbar() {
           <SearchIcon />
         </div>
         <div className="icons">
-          <span>UZS (сум)</span>
+          
           <StarBorderIcon className="icon-button" onClick={goToLikedProducts} />
           <ShoppingCartIcon className="icon-button" onClick={showCartDrawer} />
           <AccountCircle className="icon-button" onClick={showLoginModal} />
         </div>
       </div>
       <div className="bottom-bar">
-        <a href="#brands">Бренды</a>
+    
         <a href="#makeup">Макияж</a>
         <a href="#care">Уход</a>
         <a href="#perfume">Парфюмерия</a>
         <a href="#accessories">Аксессуары</a>
-        <a href="#giftcards">Подарочные сертификаты</a>
+       
         <a href="#news">Новинки</a>
-        <a href="#family">femiLY</a>
-        <a href="#blog">Блог</a>
+       
+       
         <a href="#contacts">Наши контакты</a>
       </div>
 
