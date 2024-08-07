@@ -4,6 +4,7 @@ import BlogSection from "./Components/Blog-section"
 import Card from "./Components/Card"
 import ProductCard from "./Components/ProductCard"
 import axios from "axios"
+import OfficeProducts from './Components/OfficeProducts'
 
 const Home = () => {
 
@@ -39,6 +40,7 @@ const Home = () => {
     
     <ProductCard/>
     <BlogSection/>
+    {/* <OfficeProducts/> */}
     </div>
   )
 }

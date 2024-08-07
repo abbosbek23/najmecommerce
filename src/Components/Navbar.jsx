@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Drawer, Input, Button, Checkbox, Modal } from 'antd';
-import axios from 'axios';
+import { Input, Modal, Checkbox, Button } from 'antd';
 import SearchIcon from '@mui/icons-material/Search';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import logo from '../assets/Логотип_PNG-04.png';
-import cartvideo from "../assets/cartvideo.mp4";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './navbar.css';
 
-function Navbar() {
+function Navbar({ cart, showCartDrawer }) {
   const [categories, setCategories] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
   const [isRegisterModalVisible, setIsRegisterModalVisible] = useState(false);
   const [isPasswordRecoveryModalVisible, setIsPasswordRecoveryModalVisible] = useState(false);
-  const [isCartDrawerVisible, setIsCartDrawerVisible] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -56,21 +54,6 @@ function Navbar() {
     setIsRegisterModalVisible(false);
   };
 
-  const showCartDrawer = () => {
-    setIsCartDrawerVisible(true);
-  };
-
-  const handleCancel = () => {
-    setIsLoginModalVisible(false);
-    setIsRegisterModalVisible(false);
-    setIsPasswordRecoveryModalVisible(false);
-    setIsCartDrawerVisible(false);
-  };
-
-  const goToLikedProducts = () => {
-    navigate('/liked');
-  };
-
   return (
     <div className="navbar">
       <div className="top-bar">
@@ -84,30 +67,25 @@ function Navbar() {
           <SearchIcon />
         </div>
         <div className="icons">
-          
-          <StarBorderIcon className="icon-button" onClick={goToLikedProducts} />
+          <StarBorderIcon className="icon-button" onClick={() => navigate('/liked')} />
           <ShoppingCartIcon className="icon-button" onClick={showCartDrawer} />
           <AccountCircle className="icon-button" onClick={showLoginModal} />
         </div>
       </div>
       <div className="bottom-bar">
-    
-        <a href="#makeup">Макияж</a>
-        <a href="#care">Уход</a>
-        <a href="#perfume">Парфюмерия</a>
-        <a href="#accessories">Аксессуары</a>
-       
-        <a href="#news">Новинки</a>
-       
-       
-        <a href="#contacts">Наши контакты</a>
+        <a onClick={() => navigate('/products/makeup')}>Макияж</a>
+        <a onClick={() => navigate('/products/care')}>Уход</a>
+        <a onClick={() => navigate('/products/parfume')}>Парфюмерия</a>
+        <a onClick={() => navigate('/products/accessories')}>Аксессуары</a>
+        <a onClick={() => navigate('/products/new')}>Новинки</a>
+        <a onClick={() => navigate('/products/contacts')}>Наши контакты</a>
       </div>
 
       <Modal
         title={<div style={{ textAlign: 'center', width: '100%' }}>Личный кабинет</div>}
         centered
         open={isLoginModalVisible}
-        onCancel={handleCancel}
+        onCancel={() => setIsLoginModalVisible(false)}
         footer={null}
       >
         <div style={{ textAlign: 'center' }}>
@@ -147,7 +125,7 @@ function Navbar() {
         title={<div style={{ textAlign: 'center', width: '100%' }}>Регистрация</div>}
         centered
         open={isRegisterModalVisible}
-        onCancel={handleCancel}
+        onCancel={() => setIsRegisterModalVisible(false)}
         footer={null}
       >
         <div style={{ textAlign: 'center' }}>
@@ -168,7 +146,7 @@ function Navbar() {
         title={<div style={{ textAlign: 'center', width: '100%' }}>Восстановление пароля</div>}
         centered
         open={isPasswordRecoveryModalVisible}
-        onCancel={handleCancel}
+        onCancel={() => setIsPasswordRecoveryModalVisible(false)}
         footer={null}
       >
         <div style={{ textAlign: 'center' }}>
@@ -185,24 +163,6 @@ function Navbar() {
           </Button>
         </div>
       </Modal>
-      <Drawer style={{ backgroundColor: "#f5f4f6" }}
-        title="Корзина"
-        placement="right"
-        closable={true}
-        onClose={handleCancel}
-        open={isCartDrawerVisible}
-      >
-        <div style={{ textAlign: 'center' }}>
-          <video
-            src={cartvideo}
-            loop
-            autoPlay
-            muted
-            style={{ width: '100%', height: 'auto' }}
-          ></video>
-          <p>Ваша корзина пуста</p>
-        </div>
-      </Drawer>
     </div>
   );
 }
