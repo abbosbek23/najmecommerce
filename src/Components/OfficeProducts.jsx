@@ -3,9 +3,10 @@ import CategoryList from './CategoryList';
 import ProductsGrid from './ProductsGrid';
 import './OfficeProducts.css';
 
-const OfficeProducts = () => {
+const OfficeProducts = ({onAddToCart}) => {
   const [selectedCategory, setSelectedCategory] = useState('');
-
+  console.log(onAddToCart);
+  
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
   };
@@ -18,7 +19,7 @@ const OfficeProducts = () => {
       </header>
       <main>
         <CategoryList onSelectCategory={handleCategorySelect} />
-        <ProductsGrid selectedCategory={selectedCategory} />
+        <ProductsGrid onAddToCart={onAddToCart} selectedCategory={selectedCategory} />
       </main>
     </div>
   );

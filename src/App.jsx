@@ -5,7 +5,8 @@ import Home from './Home';
 import LikedProducts from './Components/LikedProducts';
 import OfficeProducts from './Components/OfficeProducts';
 import Cart from './Components/Cart';
-// import products from './productsData'; // Assuming you have a productsData.js file with product information
+import ProductDetail from './Components/ProductDetail';
+import defaultProducts from './Components/ProductData';// Import the default products
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/liked" element={<LikedProducts />} />
         <Route path="/products/:category" element={<OfficeProducts onAddToCart={handleAddToCart} />} />
+        <Route path="/product/:id" element={<ProductDetail products={defaultProducts} onAddToCart={handleAddToCart} />} />
       </Routes>
       <Cart cart={cart} isCartDrawerVisible={isCartDrawerVisible} handleCancel={handleCancel} />
     </div>

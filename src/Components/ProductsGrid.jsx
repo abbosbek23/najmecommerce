@@ -1,44 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductsCard from './ProductsCard';
-import firstImage from '../assets/firstImage.jpg';
-import secondImage from '../assets/SeconImage.jpg';
+import defaultProducts from './ProductData';
 
-const defaultProducts = [
-  {
-    name: 'Charlotte Tilbury K.I.S.S.I.N.G Lipstick and Lip Gloss Duos',
-    price: '479 000',
-    image: firstImage
-  },
-  {
-    name: 'IT Cosmetics Крем CC+ SPF 50+, 12 мл, Fair',
-    price: '378 000',
-    image: secondImage
-  },
-  {
-    name: 'IT Cosmetics Крем CC+ SPF 50+, 12 мл, Fair',
-    price: '378 000',
-    image: secondImage
-  },
-  {
-    name: 'IT Cosmetics Крем CC+ SPF 50+, 12 мл, Fair',
-    price: '378 000',
-    image: secondImage
-  },
-  {
-    name: 'IT Cosmetics Крем CC+ SPF 50+, 12 мл, Fair',
-    price: '378 000',
-    image: secondImage
-  },
-   {
-    name: 'IT Cosmetics Крем CC+ SPF 50+, 12 мл, Fair',
-    price: '378 000',
-    image: secondImage
-  },
-  // Add more default products as needed
-];
-
-const ProductsGrid = ({ selectedCategory }) => {
+const ProductsGrid = ({ selectedCategory, onAddToCart }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -59,8 +24,8 @@ const ProductsGrid = ({ selectedCategory }) => {
 
   return (
     <div className="product-grid">
-      {products.map((product, index) => (
-        <ProductsCard key={index} product={product} />
+      {products.map((product) => (
+        <ProductsCard key={product.id} onAddToCart={onAddToCart} product={product} />
       ))}
     </div>
   );

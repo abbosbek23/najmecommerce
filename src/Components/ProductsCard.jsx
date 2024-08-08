@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ProductsCard = ({ product }) => {
+const ProductsCard = ({ product, onAddToCart }) => {
   return (
     <div className="product-card">
-      <img src={product.image} alt={product.name} />
+      <Link to={`/product/${product.id}`}>
+        <img src={product.image} alt={product.name} />
+      </Link>
       <div className="product-info">
         <p>{product.price} сум</p>
         <p>{product.name}</p>
-        <button>Добавить в корзину</button>
+        <button onClick={() => onAddToCart(product)}>Добавить в корзину</button>
       </div>
     </div>
   );
