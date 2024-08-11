@@ -41,7 +41,7 @@ const ProductCard = () => {
 
   return (
     <div>
-      <h1 style={{ fontFamily: "sans-serif", fontSize: "2.5rem", marginTop: 200, textAlign: "center" }}>Рекомендуемые товары</h1>
+      <h1 style={{ fontFamily: "sans-serif", fontSize: "2.5rem", marginTop: 200, textAlign: "center" }} className='title-recomended-product'>Рекомендуемые товары</h1>
       <div className="product-list">
         {productsData.map((product, index) => (
           <div className="card-product" key={index}>

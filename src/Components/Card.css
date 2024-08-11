@@ -68,3 +68,14 @@
   margin-right: 0px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+@media (max-width:756px){
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 0px;
+  }
+  .card{
+    width: 100%;
+    max-width: 300px;
+  }
+}

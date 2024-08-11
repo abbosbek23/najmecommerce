@@ -5,6 +5,7 @@ import Card from "./Components/Card"
 import ProductCard from "./Components/ProductCard"
 import axios from "axios"
 import OfficeProducts from './Components/OfficeProducts'
+import "./index.css"
 
 const Home = () => {
 

@@ -4,7 +4,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import MenuIcon from '@mui/icons-material/Menu';
 import logo from '../assets/Логотип_PNG-04.png';
+import homeicon from '../assets/home (1).png'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './navbar.css';
@@ -54,12 +56,20 @@ function Navbar({ cart, showCartDrawer }) {
     setIsRegisterModalVisible(false);
   };
 
+  const toggleMenu = () => {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+  }
+
   return (
     <div className="navbar">
       <div className="top-bar">
         <div className="logo">
-          <a href="/">
+          <a href="/" className='desktop-logo'>
             <img src={logo} alt="femi Cosmetics" />
+          </a>
+          <a href="/" className='mobile'>
+          <img src={homeicon} alt="home" />
           </a>
         </div>
         <div className="search">
@@ -70,6 +80,7 @@ function Navbar({ cart, showCartDrawer }) {
           <StarBorderIcon className="icon-button" onClick={() => navigate('/liked')} />
           <ShoppingCartIcon className="icon-button" onClick={showCartDrawer} />
           <AccountCircle className="icon-button" onClick={showLoginModal} />
+          <MenuIcon className="icon-button" onclick={toggleMenu}/>
         </div>
       </div>
       <div className="bottom-bar">
@@ -80,6 +91,22 @@ function Navbar({ cart, showCartDrawer }) {
         <a onClick={() => navigate('/products/new')}>Новинки</a>
         <a onClick={() => navigate('/products/contacts')}>Наши контакты</a>
       </div>
+
+      <div id="mobile-menu" class="mobile-bottom-menu">
+        <div class="close-button" onclick="toggleMenu">✖</div>
+        <a href="#">ГЛАВНАЯ</a>
+        <a href="#">БРЕНДЫ</a>
+        <a href="#">МАКИЯЖ</a>
+        <a href="#">АКСЕССУАРЫ</a>
+        <a href="#">УХОД</a>
+        <a href="#">ПОДАРОЧНЫЕ СЕРТИФИКАТЫ</a>
+        <a href="#">ПАРФЮМЕРИЯ</a>
+        <a href="#">НОВИНКИ</a>
+        <a href="#">femiLY</a>
+        <a href="#">БЛОГ</a>
+        <a href="#">НАШИ КОНТАКТЫ</a>
+        <div class="currency-info">Валюта на сайте: UZS (сум)</div>
+    </div>
 
       <Modal
         title={<div style={{ textAlign: 'center', width: '100%' }}>Личный кабинет</div>}
@@ -163,6 +190,7 @@ function Navbar({ cart, showCartDrawer }) {
           </Button>
         </div>
       </Modal>
+      
     </div>
   );
 }

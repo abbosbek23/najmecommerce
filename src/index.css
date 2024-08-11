@@ -74,6 +74,9 @@ img {
   body {
     font-size: 18px;
   }
+  /* .Main-page{
+    height: 100vh;
+  } */
 }
 
 @media (min-width: 1200px) {
@@ -83,7 +86,7 @@ img {
 }
 .Main-page{
   width: 100%;
-  height: 85vh;
+  height: 100vh;
   background-size: cover;
   background-image: url('./assets/1678164742_bogatyr-club-p-penal-foni-oboi-8.jpg');
 }
