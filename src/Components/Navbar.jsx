@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Input, Modal, Checkbox, Button } from 'antd';
+import { Input, Modal, Checkbox, Button, Drawer } from 'antd';
 import SearchIcon from '@mui/icons-material/Search';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -18,6 +18,7 @@ function Navbar({ cart, showCartDrawer }) {
   const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
   const [isRegisterModalVisible, setIsRegisterModalVisible] = useState(false);
   const [isPasswordRecoveryModalVisible, setIsPasswordRecoveryModalVisible] = useState(false);
+  const [drawerVisible, setDrawerVisible] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -56,9 +57,8 @@ function Navbar({ cart, showCartDrawer }) {
     setIsRegisterModalVisible(false);
   };
 
-  const toggleMenu = () => {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('open');
+  const toggleDrawer = () => {
+    setDrawerVisible(!drawerVisible);
   }
 
   return (
@@ -69,7 +69,7 @@ function Navbar({ cart, showCartDrawer }) {
             <img src={logo} alt="femi Cosmetics" />
           </a>
           <a href="/" className='mobile'>
-          <img src={homeicon} alt="home" />
+            <img src={homeicon} alt="home" />
           </a>
         </div>
         <div className="search">
@@ -80,7 +80,7 @@ function Navbar({ cart, showCartDrawer }) {
           <StarBorderIcon className="icon-button" onClick={() => navigate('/liked')} />
           <ShoppingCartIcon className="icon-button" onClick={showCartDrawer} />
           <AccountCircle className="icon-button" onClick={showLoginModal} />
-          <MenuIcon className="icon-button" onclick={toggleMenu}/>
+          <MenuIcon className="icon-button" onClick={toggleDrawer} />
         </div>
       </div>
       <div className="bottom-bar">
@@ -92,21 +92,22 @@ function Navbar({ cart, showCartDrawer }) {
         <a onClick={() => navigate('/products/contacts')}>Наши контакты</a>
       </div>
 
-      <div id="mobile-menu" class="mobile-bottom-menu">
-        <div class="close-button" onclick="toggleMenu">✖</div>
-        <a href="#">ГЛАВНАЯ</a>
-        <a href="#">БРЕНДЫ</a>
-        <a href="#">МАКИЯЖ</a>
-        <a href="#">АКСЕССУАРЫ</a>
-        <a href="#">УХОД</a>
-        <a href="#">ПОДАРОЧНЫЕ СЕРТИФИКАТЫ</a>
-        <a href="#">ПАРФЮМЕРИЯ</a>
-        <a href="#">НОВИНКИ</a>
-        <a href="#">femiLY</a>
-        <a href="#">БЛОГ</a>
-        <a href="#">НАШИ КОНТАКТЫ</a>
-        <div class="currency-info">Валюта на сайте: UZS (сум)</div>
-    </div>
+      <Drawer
+        title="Меню"
+        placement="left"
+        onClose={toggleDrawer}
+        visible={drawerVisible}
+        className="mobile-bottom-menu"
+      >
+        <a onClick={() => { navigate('/'); toggleDrawer(); }}>ГЛАВНАЯ</a>
+        <a onClick={() => { navigate('/products/makeup'); toggleDrawer(); }}>МАКИЯЖ</a>
+        <a onClick={() => { navigate('/products/accessories'); toggleDrawer(); }}>АКСЕССУАРЫ</a>
+        <a onClick={() => { navigate('/products/care'); toggleDrawer(); }}>УХОД</a>
+        <a onClick={() => { navigate('/products/parfume'); toggleDrawer(); }}>ПАРФЮМЕРИЯ</a>
+        <a onClick={() => { navigate('/products/new'); toggleDrawer(); }}>НОВИНКИ</a>
+        <a onClick={() => { navigate('/products/contacts'); toggleDrawer(); }}>НАШИ КОНТАКТЫ</a>
+        <div className="currency-info">Валюта на сайте: UZS (сум)</div>
+      </Drawer>
 
       <Modal
         title={<div style={{ textAlign: 'center', width: '100%' }}>Личный кабинет</div>}
@@ -190,7 +191,6 @@ function Navbar({ cart, showCartDrawer }) {
           </Button>
         </div>
       </Modal>
-      
     </div>
   );
 }

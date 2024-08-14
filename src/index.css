@@ -90,3 +90,31 @@ img {
   background-size: cover;
   background-image: url('./assets/1678164742_bogatyr-club-p-penal-foni-oboi-8.jpg');
 }
+.logo-mobile {
+  display: none;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 767px) {
+  .logo-mobile{
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: max-content;
+    padding-block: 10px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+  }
+  .logo-mobile img {
+    display: block; /* Show the logo only on mobile screens */
+    
+   
+    width: 120px;
+    height: 120px; /* Adjust the size as needed */
+    height: auto;
+    
+  }
+}
