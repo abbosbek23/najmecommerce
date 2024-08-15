@@ -96,6 +96,9 @@ img {
 
 /* Mobile-specific styles */
 @media (max-width: 767px) {
+  .Main-page{
+    height: 60vh;
+  }
   .logo-mobile{
     display: block;
     position: absolute;

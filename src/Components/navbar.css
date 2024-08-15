@@ -156,7 +156,7 @@
     .icons {
         width: 100%;
         justify-content: space-between;
-        margin-left: 100px;
+        /* margin-left: 100px; */
     }
     .icons svg {
         font-size: 30px;

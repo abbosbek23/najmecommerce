@@ -68,15 +68,16 @@ function Navbar({ cart, showCartDrawer }) {
           <a href="/" className='desktop-logo'>
             <img src={logo} alt="femi Cosmetics" />
           </a>
-          <a href="/" className='mobile'>
-            <img src={homeicon} alt="home" />
-          </a>
+       
         </div>
         <div className="search">
           <input type="text" placeholder="Поиск" />
           <SearchIcon />
         </div>
         <div className="icons">
+        <a href="/" className='mobile'>
+            <img src={homeicon} alt="home" />
+          </a>
           <StarBorderIcon className="icon-button" onClick={() => navigate('/liked')} />
           <ShoppingCartIcon className="icon-button" onClick={showCartDrawer} />
           <AccountCircle className="icon-button" onClick={showLoginModal} />
@@ -99,6 +100,7 @@ function Navbar({ cart, showCartDrawer }) {
         visible={drawerVisible}
         className="mobile-bottom-menu"
       >
+        
         <a onClick={() => { navigate('/'); toggleDrawer(); }}>ГЛАВНАЯ</a>
         <a onClick={() => { navigate('/products/makeup'); toggleDrawer(); }}>МАКИЯЖ</a>
         <a onClick={() => { navigate('/products/accessories'); toggleDrawer(); }}>АКСЕССУАРЫ</a>
