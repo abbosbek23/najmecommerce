@@ -42,7 +42,7 @@ const Card = () => {
           <div className="card-content">
             <h2>{card.title}</h2>
             <p>{card.description}</p>
-           <div className='card-btns' style={{display:"flex",alignItems:"center",justifyContent:"start",gap:"10px",marginLeft:"0px"}}> <a href="#" style={{textDecoration:"none"}}>Подробнее </a><img src={rightArrow} alt="icon" /></div>
+           <div style={{display:"flex",alignItems:"center",justifyContent:"start",gap:"10px",marginLeft:"0px"}}> <a href="#" style={{textDecoration:"none"}}>Подробнее </a><img src={rightArrow} alt="icon" /></div>
           </div>
         </div>
       ))}

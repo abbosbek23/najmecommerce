@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Input, Modal, Checkbox, Button, Drawer } from 'antd';
+import { Drawer, Input, Button, Checkbox, Modal } from 'antd';
+import axios from 'axios';
 import SearchIcon from '@mui/icons-material/Search';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MenuIcon from '@mui/icons-material/Menu';
 import logo from '../assets/Логотип_PNG-04.png';
-import homeicon from '../assets/home (1).png'
+import cartvideo from "../assets/cartvideo.mp4";
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import './navbar.css';
 
-function Navbar({ cart, showCartDrawer }) {
+function Navbar() {
   const [categories, setCategories] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
   const [isRegisterModalVisible, setIsRegisterModalVisible] = useState(false);
   const [isPasswordRecoveryModalVisible, setIsPasswordRecoveryModalVisible] = useState(false);
-  const [drawerVisible, setDrawerVisible] = useState(false);
+  const [isCartDrawerVisible, setIsCartDrawerVisible] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,65 +56,58 @@ function Navbar({ cart, showCartDrawer }) {
     setIsRegisterModalVisible(false);
   };
 
-  const toggleDrawer = () => {
-    setDrawerVisible(!drawerVisible);
-  }
+  const showCartDrawer = () => {
+    setIsCartDrawerVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsLoginModalVisible(false);
+    setIsRegisterModalVisible(false);
+    setIsPasswordRecoveryModalVisible(false);
+    setIsCartDrawerVisible(false);
+  };
+
+  const goToLikedProducts = () => {
+    navigate('/liked');
+  };
 
   return (
     <div className="navbar">
       <div className="top-bar">
         <div className="logo">
-          <a href="/" className='desktop-logo'>
+          <a href="/">
             <img src={logo} alt="femi Cosmetics" />
           </a>
-       
         </div>
         <div className="search">
           <input type="text" placeholder="Поиск" />
           <SearchIcon />
         </div>
         <div className="icons">
-        <a href="/" className='mobile'>
-            <img src={homeicon} alt="home" />
-          </a>
-          <StarBorderIcon className="icon-button" onClick={() => navigate('/liked')} />
+          
+          <StarBorderIcon className="icon-button" onClick={goToLikedProducts} />
           <ShoppingCartIcon className="icon-button" onClick={showCartDrawer} />
           <AccountCircle className="icon-button" onClick={showLoginModal} />
-          <MenuIcon className="icon-button" onClick={toggleDrawer} />
         </div>
       </div>
       <div className="bottom-bar">
-        <a onClick={() => navigate('/products/makeup')}>Макияж</a>
-        <a onClick={() => navigate('/products/care')}>Уход</a>
-        <a onClick={() => navigate('/products/parfume')}>Парфюмерия</a>
-        <a onClick={() => navigate('/products/accessories')}>Аксессуары</a>
-        <a onClick={() => navigate('/products/new')}>Новинки</a>
-        <a onClick={() => navigate('/products/contacts')}>Наши контакты</a>
+    
+        <a href="#makeup">Макияж</a>
+        <a href="#care">Уход</a>
+        <a href="#perfume">Парфюмерия</a>
+        <a href="#accessories">Аксессуары</a>
+       
+        <a href="#news">Новинки</a>
+       
+       
+        <a href="#contacts">Наши контакты</a>
       </div>
-
-      <Drawer
-        title="Меню"
-        placement="left"
-        onClose={toggleDrawer}
-        visible={drawerVisible}
-        className="mobile-bottom-menu"
-      >
-        
-        <a onClick={() => { navigate('/'); toggleDrawer(); }}>ГЛАВНАЯ</a>
-        <a onClick={() => { navigate('/products/makeup'); toggleDrawer(); }}>МАКИЯЖ</a>
-        <a onClick={() => { navigate('/products/accessories'); toggleDrawer(); }}>АКСЕССУАРЫ</a>
-        <a onClick={() => { navigate('/products/care'); toggleDrawer(); }}>УХОД</a>
-        <a onClick={() => { navigate('/products/parfume'); toggleDrawer(); }}>ПАРФЮМЕРИЯ</a>
-        <a onClick={() => { navigate('/products/new'); toggleDrawer(); }}>НОВИНКИ</a>
-        <a onClick={() => { navigate('/products/contacts'); toggleDrawer(); }}>НАШИ КОНТАКТЫ</a>
-        <div className="currency-info">Валюта на сайте: UZS (сум)</div>
-      </Drawer>
 
       <Modal
         title={<div style={{ textAlign: 'center', width: '100%' }}>Личный кабинет</div>}
         centered
         open={isLoginModalVisible}
-        onCancel={() => setIsLoginModalVisible(false)}
+        onCancel={handleCancel}
         footer={null}
       >
         <div style={{ textAlign: 'center' }}>
@@ -155,7 +147,7 @@ function Navbar({ cart, showCartDrawer }) {
         title={<div style={{ textAlign: 'center', width: '100%' }}>Регистрация</div>}
         centered
         open={isRegisterModalVisible}
-        onCancel={() => setIsRegisterModalVisible(false)}
+        onCancel={handleCancel}
         footer={null}
       >
         <div style={{ textAlign: 'center' }}>
@@ -176,7 +168,7 @@ function Navbar({ cart, showCartDrawer }) {
         title={<div style={{ textAlign: 'center', width: '100%' }}>Восстановление пароля</div>}
         centered
         open={isPasswordRecoveryModalVisible}
-        onCancel={() => setIsPasswordRecoveryModalVisible(false)}
+        onCancel={handleCancel}
         footer={null}
       >
         <div style={{ textAlign: 'center' }}>
@@ -193,6 +185,24 @@ function Navbar({ cart, showCartDrawer }) {
           </Button>
         </div>
       </Modal>
+      <Drawer style={{ backgroundColor: "#f5f4f6" }}
+        title="Корзина"
+        placement="right"
+        closable={true}
+        onClose={handleCancel}
+        open={isCartDrawerVisible}
+      >
+        <div style={{ textAlign: 'center' }}>
+          <video
+            src={cartvideo}
+            loop
+            autoPlay
+            muted
+            style={{ width: '100%', height: 'auto' }}
+          ></video>
+          <p>Ваша корзина пуста</p>
+        </div>
+      </Drawer>
     </div>
   );
 }

@@ -10,6 +10,8 @@ const BlogSection = () => {
   return (
     <div className="blog-section">
       <h1>О нас</h1>
+      <p>В нашем блоге вы найдете вдохновляющие статьи о красоте, трендах макияжа, секретах ухода, текущих акциях и специальных предложениях.</p>
+      <button>Посмотреть все статьи</button>
       <div className="features">
         <div className="feature">
           <img src={icon1} alt="Icon 1" />

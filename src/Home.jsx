@@ -4,9 +4,6 @@ import BlogSection from "./Components/Blog-section"
 import Card from "./Components/Card"
 import ProductCard from "./Components/ProductCard"
 import axios from "axios"
-import OfficeProducts from './Components/OfficeProducts'
-import logo from "./assets/Логотип_PNG-04.png"
-import "./index.css"
 
 const Home = () => {
 
@@ -36,13 +33,12 @@ const Home = () => {
   return (
     <div>
     <div className="Main-page">
-    <div className="logo-mobile"><a href="/"><img  src={logo} alt="" /></a></div> 
+     
     </div>
     <Card/>
     
     <ProductCard/>
     <BlogSection/>
-    {/* <OfficeProducts/> */}
     </div>
   )
 }

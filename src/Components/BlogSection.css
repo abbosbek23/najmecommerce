@@ -10,13 +10,36 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
-
+  .blog-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    max-width: 600px;
+    color: #7e7e7e;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .blog-section button {
+    background-color: #435f4b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .blog-section button:hover {
+    background-color: #0056b3;
+  }
   
   .features {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 20px 100px;
+    padding: 100px;
   }
   
   .feature {
@@ -44,8 +67,4 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #7e7e7e;
   }
-  @media(max-width:756px){
-    .features{
-      padding: 0px;
-    }
-  }
+  
