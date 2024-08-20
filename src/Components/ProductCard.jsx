@@ -58,7 +58,7 @@ const ProductCard = () => {
               {product.availability ? 'В наличии' : 'Нет в наличии'}
             </p>
             <div className="card-buttons">
-              <a href={`/products${product.id}`} className="details-btn">Подробнее</a>
+              <a href={`/products/${product.id}`} className="details-btn">Подробнее</a>
               {/* <a href="#" className="order-btn">Заказать</a> */}
             </div>
           </div>
