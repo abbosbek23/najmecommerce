@@ -140,7 +140,7 @@ const Cart = ({ cart, isCartDrawerVisible, handleCancel }) => {
             value={formData.phone}
             onChange={handleInputChange}/>
         </div>
-      </Modal>
+</Modal>
     </>
   );
 };
