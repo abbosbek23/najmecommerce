@@ -1,0 +1,51 @@
+/* BlogSection.css */
+.blog-section {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .blog-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px 100px;
+  }
+  
+  .feature {
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    flex: 1 1 200px;
+    box-sizing: border-box;
+  }
+  
+  .feature img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+  }
+  
+  .feature h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .feature p {
+    font-size: 1em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #7e7e7e;
+  }
+  @media(max-width:756px){
+    .features{
+      padding: 0px;
+    }
+  }

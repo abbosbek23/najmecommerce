@@ -57,7 +57,7 @@
     background: white;
     border: 1px solid white;
     box-shadow: 12px 17px 51px rgba(126, 126, 126, 0.22);
-    backdrop-filter: blur(6px);
+    /* backdrop-filter: blur(6px); */
     border-radius: 17px;
     text-align: center;
     cursor: pointer;
@@ -132,7 +132,6 @@
     border: 1px solid black;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     transform: scale(1.02);
-    backdrop-filter: blur(0px) !important;
   }
   
   
@@ -147,7 +146,6 @@
   .card-buttons a {
  
     text-decoration: none;
-    width: 50%;
     padding: 7px;
     border-radius: 5px;
     font-size: 16px;
@@ -195,25 +193,55 @@
   .product-list {
     padding-inline: 30px !important;
   }
+ 
 }
 
 /* Mobile */
+/* Mobile */
+/* Mobile */
 @media (max-width: 767px) {
   .product-list {
-    padding-inline: 30px !important;
+    padding-inline: 10px !important; /* Reduce padding for smaller screens */
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: center; /* Center the items in the row */
   }
   .card-product {
-    width: calc(100% - 40px);
-    margin: 20px;
+    width: calc(50% - 20px); /* Two items per row */
+    margin: 10px; /* Adjust margins to fit within the mobile view */
+    text-align: center;
+  }
+  .card-product img {
+    width: 100px; /* Reduce image size */
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .card-product .price {
+    font-size: 16px; /* Reduce font size for better readability */
+  }
+  .card-product .description {
+    font-size: 12px; /* Reduce description font size */
+    line-height: 1.2em;
+    max-height: 2.4em; /* Two lines max */
+  }
+  .card-product .availability {
+    font-size: 12px; /* Adjust font size */
+    margin: 5px 0;
   }
   .card-buttons {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 5px;
     flex-direction: column;
-    gap: 10px;
     margin-top: 10px;
   }
-  
+  .card-buttons a {
+    font-size: 12px; /* Adjust button text size */
+    padding: 5px; /* Adjust button padding */
+  }
+  .title-recomended-product {
+    font-size: 16px !important; /* Smaller title */
+    margin-top: 50px !important; /* Adjust margin */
+  }
 }
-  

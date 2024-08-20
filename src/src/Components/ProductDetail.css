@@ -1,0 +1,172 @@
+
+
+/* Mobile Specific Styles */
+@media (max-width: 1024px) {
+  .product-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the start instead of center */
+    background-color: #ffffff;
+    padding: 15px;
+    max-width: 100%;
+    margin: 0 auto;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-images-swiper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+
+  .product-images-swiper img,
+  .single-product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .product-detail h1 {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+  }
+
+  .product-detail p {
+    margin: 8px 0;
+    font-size: 14px; /* Smaller font size */
+    color: #333333; /* Darker text color */
+    line-height: 1.5; /* Increase line height for readability */
+  }
+
+  .product-detail button {
+    padding: 10px 15px;
+    background-color: #6c757d; /* Gray background for the button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px; /* Add margin to the top */
+    align-self: stretch; /* Button stretches to the full width of the container */
+  }
+
+  .product-detail button:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+  }
+
+  /* Custom style for Swiper navigation buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #333; /* Dark gray color */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    border-radius: 50%;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    --swiper-navigation-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+
+  /* Position the next button to the right */
+  .swiper-button-next {
+    right: 10px;
+  }
+
+  /* Position the prev button to the left */
+  .swiper-button-prev {
+    left: 10px;
+  }
+
+  /* Add hover effect for the buttons */
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* More opaque on hover */
+    color: #000; /* Darker color on hover */
+  }
+  .product-detail {
+    padding: 10px;
+  }
+
+  .product-detail h1 {
+    font-size: 18px;
+  }
+
+  .product-detail .product-price{
+    color: #474747;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 1.35;
+    font-family: 'Roboto Mono', Arial, sans-serif;
+  }
+  .product-detail p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #8a8a8a;
+  }
+
+  .product-detail button {
+    font-size: 14px;
+    padding: 15px 10px;
+  }
+}
+@media (min-width: 1025px) {
+  .product-detail {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: #ffffff;
+    padding: 20px;
+    max-width: 80%;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    border-radius: 10px;
+    
+  }
+
+  .product-images-swiper {
+    position: relative;
+    width: 50%; /* Adjusted to 50% to accommodate both image and details side by side */
+    max-width: 400px;
+    margin-right: 30px; /* Added margin to the right for spacing between image and details */
+  }
+
+  .product-images-swiper img,
+  .single-product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .product-detail h1 {
+    margin-top: 15px;
+    font-size: 24px; /* Increased font size for larger screens */
+    font-weight: 600;
+    color: #333333;
+  }
+
+  .product-price {
+    color: #474747;
+    font-weight: 500;
+    font-size: 24px; /* Increased font size for price on larger screens */
+    line-height: 1.35;
+    font-family: 'Roboto Mono', Arial, sans-serif;
+  }
+
+  .product-detail p {
+    margin: 10px 0;
+    font-size: 16px; /* Larger font size for better readability on larger screens */
+    color: #333333;
+    line-height: 1.6;
+  }
+}

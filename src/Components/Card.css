@@ -68,3 +68,27 @@
   margin-right: 0px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+@media (max-width: 756px) {
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ensures the cards are spaced out evenly */
+    padding-inline: 10px; /* Adjusts padding for smaller screens */
+  }
+  
+  .card {
+    flex: 1 1 calc(50% - 20px); /* Each card takes 50% of the row with some margin */
+    max-width: calc(50% - 20px); /* Max width adjusted for two cards per row */
+    margin-bottom: 20px; /* Space between rows */
+    height: 150px; /* Adjust the height if needed */
+  }
+
+  .card h2 {
+    font-size: 15px !important;
+  }
+  .card .card-btns{
+    display: flex;
+    flex-direction: column;
+  }
+}
