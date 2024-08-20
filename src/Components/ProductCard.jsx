@@ -7,24 +7,28 @@ import fourthImage from '../assets/SeconImage.jpg';
 
 const productsData = [
   {
+    id:1,
     image: firstImage,
     price: '757 000 сум',
     description: 'Пудра Charlotte Tilbury Airbrush Flawless Finish Setting Powder - 1 Fair',
     availability: true,
   },
   {
+    id:2,
     image: secondImage,
     price: '820 000 сум',
     description: 'Косметичка Charlotte Tilbury x Disney Beauty Wishes velvet',
     availability: false,
   },
   {
+    id:3,
     image: thirdImage,
     price: '1 021 000 сум',
     description: 'Палетка теней Charlotte Tilbury Instant Eye Palette - Pillow Talk',
     availability: false,
   },
   {
+    id:4,
     image: fourthImage,
     price: '618 000 сум',
     description: 'Фиксатор для макияжа Charlotte Tilbury Airbrush Flawless Setting Spray 100ml',
@@ -54,8 +58,8 @@ const ProductCard = () => {
               {product.availability ? 'В наличии' : 'Нет в наличии'}
             </p>
             <div className="card-buttons">
-              <a href="#" className="details-btn">Подробнее</a>
-              <a href="#" className="order-btn">Заказать</a>
+              <a href={`/products${product.id}`} className="details-btn">Подробнее</a>
+              {/* <a href="#" className="order-btn">Заказать</a> */}
             </div>
           </div>
         ))}
