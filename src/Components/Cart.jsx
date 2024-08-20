@@ -138,8 +138,7 @@ const Cart = ({ cart, isCartDrawerVisible, handleCancel }) => {
             placeholder="Телефон номер"
             name="phone"
             value={formData.phone}
-            onChange={handleInputChange}
-          />
+            onChange={handleInputChange}/>
         </div>
       </Modal>
     </>
