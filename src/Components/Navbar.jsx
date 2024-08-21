@@ -85,19 +85,19 @@ function Navbar({ cart, showCartDrawer }) {
         </div>
       </div>
       <div className="bottom-bar">
-        <a onClick={() => navigate('/products/makeup')}>Макияж</a>
-        <a onClick={() => navigate('/products/care')}>Уход</a>
-        <a onClick={() => navigate('/products/parfume')}>Парфюмерия</a>
-        <a onClick={() => navigate('/products/accessories')}>Аксессуары</a>
-        <a onClick={() => navigate('/products/new')}>Новинки</a>
-        <a onClick={() => navigate('/products/contacts')}>Наши контакты</a>
-      </div>
+  <a onClick={(e) => navigate('/products/makeup', { state: { category: e.target.textContent } })}>Макияж</a>
+  <a onClick={(e) => navigate('/products/care', { state: { category: e.target.textContent } })}>Уход</a>
+  <a onClick={(e) => navigate('/products/parfume', { state: { category: e.target.textContent } })}>Парфюмерия</a>
+  <a onClick={(e) => navigate('/products/accessories', { state: { category: e.target.textContent } })}>Аксессуары</a>
+  <a onClick={(e) => navigate('/products/new', { state: { category: e.target.textContent } })}>Новинки</a>
+  <a onClick={(e) => navigate('/products/contacts', { state: { category: e.target.textContent } })}>Наши контакты</a>
+</div>
 
       <Drawer
         title="Меню"
         placement="left"
         onClose={toggleDrawer}
-        visible={drawerVisible}
+        open={drawerVisible}
         className="mobile-bottom-menu"
       >
         

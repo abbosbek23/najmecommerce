@@ -64,6 +64,11 @@
     font-size: 15px;
     font-weight: 500;
     font-family: 'Raleway', sans-serif;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+.bottom-bar a:hover {
+    color: #e0e0e0;
 }
 
 /* Mobile Bottom Menu */

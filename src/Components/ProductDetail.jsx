@@ -18,35 +18,35 @@ const ProductDetail = ({ products, onAddToCart }) => {
   const { image, name, price, description } = product;
 
   return (
-    <div style={{backgroundColor:"white",height:"82.5VH"}}>
-    <div className="product-detail">
-      {image && image.length > 1 ? (
-        <Swiper
-          spaceBetween={10}
-          slidesPerView={1}
-          navigation={true}
-          modules={[Navigation]}
-          className="product-images-swiper"
-        >
-          {image.map((imgSrc, index) => (
-            <SwiperSlide key={index}>
-              <img src={imgSrc} alt={`${name} image ${index + 1}`} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      ) : (
-        image && image.length === 1 && (
-          <img src={image[0]} alt={name} className="single-product-image" />
-        )
-      )}
+    <div style={{ backgroundColor: "white", height: "82.5VH" }}>
+      <div className="product-detail">
+        {image && image.length > 1 ? (
+          <Swiper
+            spaceBetween={10}
+            slidesPerView={1}
+            navigation={true}
+            modules={[Navigation]}
+            className="product-images-swiper"
+          >
+            {image.map((imgSrc, index) => (
+              <SwiperSlide key={index}>
+                <img src={imgSrc} alt={`${name} image ${index + 1}`} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          image && image.length === 1 && (
+            <img src={image[0]} alt={name} className="single-product-image" />
+          )
+        )}
 
-      <div className="product-info">
-        <h1>{name}</h1>
-        <p className="product-price">{price} UZS</p>
-        <button onClick={() => onAddToCart(product)}>Добавить в корзину</button>
-        <p>{description}</p>
+        <div className="product-info">
+          <h1>{name}</h1>
+          <p className="product-price">{price} UZS</p>
+          <button onClick={() => onAddToCart(product)}>Добавить в корзину</button>
+          <p>{description}</p>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

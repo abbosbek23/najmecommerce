@@ -113,7 +113,7 @@ const Cart = ({ cart, isCartDrawerVisible, handleCancel }) => {
 
       <Modal
         title="Оформление заказа"
-        visible={isModalVisible}
+        open={isModalVisible}
         onOk={handleFormSubmit}
         onCancel={() => setIsModalVisible(false)}
         okText="Подтвердить"
